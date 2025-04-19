@@ -58,13 +58,13 @@ const Education: React.FC<IEducationProps> = ({ setEducation, education }) => {
     setEducation((prev) => prev.filter((edu) => edu.id !== i));
   };
   return (
-    <section className="info">
-      <h2 className="eduhead">Education</h2>
-      <div className="eduspace">
+    <section className="flex flex-col p-2 gap-1 border-2 h-90 overflow-auto rounded-2xl sm:shrink-0">
+      <h2 className="text-2xl font-bold text-center">Education</h2>
+      <div className="flex flex-col gap-2 p-2">
         {education.map((singleDegree, i) => (
-          <section className="degreeInfo" key={singleDegree.id}>
-            <h2>Degree {i + 1}</h2>
-            <form className="eduform" onSubmit={handleSubmit}>
+          <section key={singleDegree.id} className="m-2">
+            <h2 className="font-bold text-center">Degree {i + 1}</h2>
+            <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
               <label htmlFor="uni_name">University name</label>
               <input type="hidden" name="id" value={singleDegree.id} required />
               <input
@@ -98,7 +98,7 @@ const Education: React.FC<IEducationProps> = ({ setEducation, education }) => {
                 defaultValue={singleDegree.address ?? ""}
                 required
               />
-              <section className="fcontrols">
+              <section className="flex gap-2 justify-center">
                 <button onClick={() => handleRemove(singleDegree.id)}>
                   Remove
                 </button>
@@ -107,7 +107,9 @@ const Education: React.FC<IEducationProps> = ({ setEducation, education }) => {
             </form>
           </section>
         ))}
-        <button onClick={handleAddAction}>Add Education</button>
+        <button onClick={handleAddAction} className="mx-auto w-3/4">
+          Add Education
+        </button>
       </div>
     </section>
   );

@@ -19,9 +19,9 @@ const BasicInfo: React.FC<IBasicProps> = ({ basicInfo, setBasicInfo }) => {
   }
 
   return (
-    <section className="info">
-      <h2>Basic Information</h2>
-      <form className="binfo" action={handleSubmit}>
+    <section className="flex flex-col border-2 h-fit rounded-2xl">
+      <h2 className="font-bold text-xl text-center">Basic Information</h2>
+      <form className="grid gap-1 m-2 " action={handleSubmit}>
         <label htmlFor="fullname">Full name</label>
         <input
           type="text"
@@ -57,7 +57,7 @@ const BasicInfo: React.FC<IBasicProps> = ({ basicInfo, setBasicInfo }) => {
           id="jtitle"
           defaultValue={basicInfo?.job_title}
         />
-        <button type="submit">Add</button>
+        <button type="submit">Save</button>
       </form>
     </section>
   );
